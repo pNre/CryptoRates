@@ -18,9 +18,17 @@ import Result
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: Properties
+    @IBOutlet var mainMenu: NSMenu!
 
     /// Status bar item
-    private lazy var statusItem: NSStatusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+    private lazy var statusItem: NSStatusItem = {
+
+        let item = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+        item.menu = self.mainMenu
+
+        return item
+
+    }()
 
     /// Time interval between price updates
     fileprivate let updateInterval: MutableProperty<TimeInterval> = MutableProperty(60)
@@ -99,6 +107,15 @@ extension AppDelegate {
                     .flatMapError { _ -> SignalProducer<String?, NoError> in .empty }
             }
 
+    }
+
+}
+
+// MARK: - Actions
+extension AppDelegate {
+
+    @IBAction func quitAction(_ sender: NSMenuItem) {
+        NSApplication.shared().terminate(self)
     }
 
 }
