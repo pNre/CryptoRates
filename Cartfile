@@ -1,0 +1,5 @@
+github "Alamofire/Alamofire"
+github "ReactiveCocoa/ReactiveSwift"
+github "ReactiveCocoa/ReactiveCocoa"
+github "Moya/Moya" "master"
+github "Hearst-DD/ObjectMapper"
