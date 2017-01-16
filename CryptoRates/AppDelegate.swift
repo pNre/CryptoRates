@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }()
 
     /// Time interval between price updates
-    fileprivate let updateInterval: MutableProperty<TimeInterval> = MutableProperty(60)
+    fileprivate let updateInterval: MutableProperty<DispatchTimeInterval> = MutableProperty(.seconds(60))
 
     /// Currency to request the exchange rates for
     fileprivate let currency: MutableProperty<String> = MutableProperty(Locale.current.currencyCode ?? "EUR")
@@ -95,16 +95,20 @@ extension AppDelegate {
 
         return SignalProducer.combineLatest(self.updateInterval.producer, self.currency.producer)
             .flatMap(.latest) { interval, currency -> SignalProducer<String?, NoError> in
-                return provider.request(target(currency)).producer
-                    .map { response -> String? in
-                        guard let string = try? response.mapString() else {
-                            return nil
-                        }
+                return timer(interval: interval, on: QueueScheduler())
+                    .prefix(value: Date())
+                    .flatMap(.latest) { _ -> SignalProducer<String?, NoError> in
+                        return provider.request(target(currency))
+                            .map { response -> String? in
+                                guard let string = try? response.mapString() else {
+                                    return nil
+                                }
 
-                        let price = try? Mapper<PricesResponse>().map(JSONString: string)
-                        return price?.amount.currencyString
-                    }
-                    .flatMapError { _ -> SignalProducer<String?, NoError> in .empty }
+                                let price = try? Mapper<PricesResponse>().map(JSONString: string)
+                                return price?.amount.currencyString
+                            }
+                            .flatMapError { _ -> SignalProducer<String?, NoError> in .empty }
+                        }
             }
 
     }
