@@ -18,7 +18,7 @@ import Result
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: Properties
-    @IBOutlet var mainMenu: NSMenu!
+    @IBOutlet weak var mainMenu: NSMenu!
 
     /// Status bar item
     private lazy var statusItem: NSStatusItem = {
@@ -66,15 +66,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .skip(while: { $0?.isEmpty != false || $1?.isEmpty != false })
             .observe(on: UIScheduler())
             .startWithResult { [weak self] result in
-                guard case .success(let buy, let sell) = result else {
+                guard case .success(.some(let buy), .some(let sell)) = result else {
                     return
                 }
 
-                let title = "↓ \(buy ?? "?") ⬝ ↑ \(sell ?? "?")"
-                let attributedTitle = NSAttributedString(string: title,
-                                                         attributes: [NSFontAttributeName: NSFont.systemFont(ofSize: NSFont.smallSystemFontSize())])
-
-                self?.statusItem.attributedTitle = attributedTitle
+                self?.statusItem.attributedTitle = AppDelegate.statusItemTitleFor(buy: buy, sell: sell)
             }
 
     }
@@ -95,21 +91,28 @@ extension AppDelegate {
 
         return SignalProducer.combineLatest(self.updateInterval.producer, self.currency.producer)
             .flatMap(.latest) { interval, currency -> SignalProducer<String?, NoError> in
+
                 return timer(interval: interval, on: QueueScheduler())
                     .prefix(value: Date())
                     .flatMap(.latest) { _ -> SignalProducer<String?, NoError> in
-                        return provider.request(target(currency))
-                            .map { response -> String? in
-                                guard let string = try? response.mapString() else {
-                                    return nil
-                                }
 
-                                let price = try? Mapper<PricesResponse>().map(JSONString: string)
-                                return price?.amount.currencyString
-                            }
+                        return provider.request(target(currency))
+                            .map(AppDelegate.map)
                             .flatMapError { _ -> SignalProducer<String?, NoError> in .empty }
-                        }
+
+                    }
+
             }
+
+    }
+
+    fileprivate static func map(response: Response) -> String? {
+
+        guard let string = try? response.mapString() else {
+            return nil
+        }
+
+        return (try? Mapper<PricesResponse>().map(JSONString: string))?.amount.currencyString
 
     }
 
@@ -122,4 +125,17 @@ extension AppDelegate {
         NSApplication.shared().terminate(self)
     }
 
+// MARK: - Formatting
+extension AppDelegate {
+
+    fileprivate static func statusItemTitleFor(buy: String, sell: String) -> NSAttributedString {
+
+        let title = "↓ \(buy) ⬝ ↑ \(sell)"
+        let attributes = [NSFontAttributeName: NSFont.systemFont(ofSize: NSFont.smallSystemFontSize())]
+
+        return NSAttributedString(string: title, attributes: attributes)
+
+    }
+
+}
 }
