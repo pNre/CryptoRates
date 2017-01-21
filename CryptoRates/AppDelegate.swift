@@ -13,12 +13,18 @@ import ReactiveCocoa
 import ReactiveSwift
 import ReactiveMoya
 import Result
+import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: Properties
     @IBOutlet weak var mainMenu: NSMenu!
+    @IBOutlet weak var toggleStartupLaunchItem: NSMenuItem! {
+        didSet {
+            toggleStartupLaunchItem.state = isLaunchedOnLogin ? NSOnState : NSOffState
+        }
+    }
 
     /// Status bar item
     private lazy var statusItem: NSStatusItem = {
@@ -125,6 +131,20 @@ extension AppDelegate {
         NSApplication.shared().terminate(self)
     }
 
+    @IBAction func toggleStartupLaunchItemAction(_ sender: NSMenuItem) {
+
+        let shouldEnable = !isLaunchedOnLogin
+
+        guard SMLoginItemSetEnabled("com.pNre.CryptoRatesLauncher" as CFString, shouldEnable) else {
+            return
+        }
+
+        sender.state = shouldEnable ? NSOnState : NSOffState
+
+    }
+
+}
+
 // MARK: - Formatting
 extension AppDelegate {
 
@@ -138,4 +158,20 @@ extension AppDelegate {
     }
 
 }
+
+// MARK: - Launch items
+extension AppDelegate {
+
+    fileprivate var isLaunchedOnLogin: Bool {
+
+        let dictionaries = SMCopyAllJobDictionaries(kSMDomainUserLaunchd).takeRetainedValue()
+
+        guard let jobs = dictionaries as NSArray as? [[String: AnyObject]], !jobs.isEmpty else {
+            return false
+        }
+
+        return jobs.contains { $0["Label"] as? String == "com.pNre.CryptoRatesLauncher" && $0["OnDemand"] as? Bool == true }
+
+    }
+
 }

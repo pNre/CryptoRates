@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -18,11 +17,18 @@
                 <customObject id="HoW-hz-r2X" customClass="AppDelegate" customModule="CryptoRates" customModuleProvider="target">
                     <connections>
                         <outlet property="mainMenu" destination="sz4-LF-pXP" id="tHe-hs-cAl"/>
+                        <outlet property="toggleStartupLaunchItem" destination="cJd-k6-Bsv" id="Hwm-uM-RO1"/>
                     </connections>
                 </customObject>
                 <customObject id="uCu-1Q-pdh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <menu id="sz4-LF-pXP">
                     <items>
+                        <menuItem title="Start on login" id="cJd-k6-Bsv">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="toggleStartupLaunchItemAction:" target="HoW-hz-r2X" id="VHO-Vs-ZKe"/>
+                            </connections>
+                        </menuItem>
                         <menuItem title="Quit" keyEquivalent="q" id="aM8-aV-7rB">
                             <connections>
                                 <action selector="quitAction:" target="HoW-hz-r2X" id="2Yl-am-hch"/>
@@ -32,37 +38,6 @@
                 </menu>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
-        </scene>
-        <!--Window Controller-->
-        <scene sceneID="647-hR-Qrk">
-            <objects>
-                <windowController storyboardIdentifier="Main" showSeguePresentationStyle="single" id="m2F-Gd-oGx" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="e2N-hb-C4k">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
-                    </window>
-                    <connections>
-                        <segue destination="KIA-hG-esq" kind="relationship" relationship="window.shadowedContentViewController" id="JK1-Zy-tPw"/>
-                    </connections>
-                </windowController>
-                <customObject id="sON-TI-WZ0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="75" y="250"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="MWu-fc-IlO">
-            <objects>
-                <viewController id="KIA-hG-esq" customClass="ViewController" customModule="CryptoRates" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="r9U-mR-L4c">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="huq-ZC-GDK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="75" y="655"/>
         </scene>
     </scenes>
 </document>

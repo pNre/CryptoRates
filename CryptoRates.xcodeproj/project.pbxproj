@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E815397D1E32C05C0007DE1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815397C1E32C05C0007DE1F /* AppDelegate.swift */; };
+		E815397F1E32C05C0007DE1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E815397E1E32C05C0007DE1F /* Assets.xcassets */; };
+		E81539821E32C05C0007DE1F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E81539801E32C05C0007DE1F /* MainMenu.xib */; };
+		E815398A1E32C09E0007DE1F /* CryptoRatesLauncher.app in Copy Launcher */ = {isa = PBXBuildFile; fileRef = E815397A1E32C05C0007DE1F /* CryptoRatesLauncher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E815398D1E32C0C80007DE1F /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E815398C1E32C0C80007DE1F /* ServiceManagement.framework */; };
 		E81A3D6F1E2BD2F2000A3B5D /* NSDecimalNumber+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A3D6E1E2BD2F2000A3B5D /* NSDecimalNumber+Formatting.swift */; };
 		E82C71DD1E2A8B6200BD4FE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82C71DC1E2A8B6200BD4FE1 /* AppDelegate.swift */; };
 		E82C71E11E2A8B6200BD4FE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E82C71E01E2A8B6200BD4FE1 /* Assets.xcassets */; };
@@ -29,7 +34,28 @@
 		E89161FB1E2A990C00543E85 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E89161F91E2A990C00543E85 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E81539871E32C0780007DE1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E82C71D11E2A8B6200BD4FE1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E81539791E32C05C0007DE1F;
+			remoteInfo = CryptoRatesLauncher;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		E81539891E32C0860007DE1F /* Copy Launcher */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				E815398A1E32C09E0007DE1F /* CryptoRatesLauncher.app in Copy Launcher */,
+			);
+			name = "Copy Launcher";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E89161E81E2A90DE00543E85 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -50,28 +76,43 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E815397A1E32C05C0007DE1F /* CryptoRatesLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoRatesLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E815397C1E32C05C0007DE1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E815397E1E32C05C0007DE1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E81539811E32C05C0007DE1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		E81539831E32C05C0007DE1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E815398C1E32C0C80007DE1F /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		E815398E1E32C0E50007DE1F /* CryptoRates.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CryptoRates.entitlements; sourceTree = "<group>"; };
 		E81A3D6E1E2BD2F2000A3B5D /* NSDecimalNumber+Formatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDecimalNumber+Formatting.swift"; sourceTree = "<group>"; };
 		E82C71D91E2A8B6200BD4FE1 /* CryptoRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82C71DC1E2A8B6200BD4FE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E82C71E01E2A8B6200BD4FE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E82C71E51E2A8B6200BD4FE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E89161BF1E2A8CFF00543E85 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		E89161DC1E2A90DD00543E85 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
-		E89161DD1E2A90DD00543E85 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = ../Carthage/Build/Mac/ReactiveCocoa.framework; sourceTree = "<group>"; };
-		E89161DE1E2A90DD00543E85 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = ../Carthage/Build/Mac/ReactiveSwift.framework; sourceTree = "<group>"; };
-		E89161DF1E2A90DE00543E85 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = ../Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
-		E89161EB1E2A936600543E85 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = ../Carthage/Build/Mac/Moya.framework; sourceTree = "<group>"; };
-		E89161EC1E2A936600543E85 /* ReactiveMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveMoya.framework; path = ../Carthage/Build/Mac/ReactiveMoya.framework; sourceTree = "<group>"; };
+		E89161DC1E2A90DD00543E85 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
+		E89161DD1E2A90DD00543E85 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/Mac/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		E89161DE1E2A90DD00543E85 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/Mac/ReactiveSwift.framework; sourceTree = "<group>"; };
+		E89161DF1E2A90DE00543E85 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
+		E89161EB1E2A936600543E85 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/Mac/Moya.framework; sourceTree = "<group>"; };
+		E89161EC1E2A936600543E85 /* ReactiveMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveMoya.framework; path = Carthage/Build/Mac/ReactiveMoya.framework; sourceTree = "<group>"; };
 		E89161F31E2A93A300543E85 /* Prices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prices.swift; sourceTree = "<group>"; };
 		E89161F71E2A98E900543E85 /* PricesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PricesResponse.swift; sourceTree = "<group>"; };
-		E89161F91E2A990C00543E85 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = ../Carthage/Build/Mac/ObjectMapper.framework; sourceTree = "<group>"; };
+		E89161F91E2A990C00543E85 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/Mac/ObjectMapper.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E81539771E32C05C0007DE1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E82C71D61E2A8B6200BD4FE1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E815398D1E32C0C80007DE1F /* ServiceManagement.framework in Frameworks */,
 				E89161E01E2A90DE00543E85 /* Alamofire.framework in Frameworks */,
 				E89161ED1E2A936600543E85 /* Moya.framework in Frameworks */,
 				E89161E21E2A90DE00543E85 /* ReactiveCocoa.framework in Frameworks */,
@@ -85,6 +126,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E815397B1E32C05C0007DE1F /* CryptoRatesLauncher */ = {
+			isa = PBXGroup;
+			children = (
+				E815397C1E32C05C0007DE1F /* AppDelegate.swift */,
+				E815397E1E32C05C0007DE1F /* Assets.xcassets */,
+				E81539801E32C05C0007DE1F /* MainMenu.xib */,
+				E81539831E32C05C0007DE1F /* Info.plist */,
+			);
+			path = CryptoRatesLauncher;
+			sourceTree = "<group>";
+		};
+		E815398B1E32C0C80007DE1F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E89161F91E2A990C00543E85 /* ObjectMapper.framework */,
+				E89161EB1E2A936600543E85 /* Moya.framework */,
+				E89161EC1E2A936600543E85 /* ReactiveMoya.framework */,
+				E89161DC1E2A90DD00543E85 /* Alamofire.framework */,
+				E89161DD1E2A90DD00543E85 /* ReactiveCocoa.framework */,
+				E89161DE1E2A90DD00543E85 /* ReactiveSwift.framework */,
+				E89161DF1E2A90DE00543E85 /* Result.framework */,
+				E815398C1E32C0C80007DE1F /* ServiceManagement.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E81A3D6D1E2BD2CE000A3B5D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,7 +164,9 @@
 			isa = PBXGroup;
 			children = (
 				E82C71DB1E2A8B6200BD4FE1 /* CryptoRates */,
+				E815397B1E32C05C0007DE1F /* CryptoRatesLauncher */,
 				E82C71DA1E2A8B6200BD4FE1 /* Products */,
+				E815398B1E32C0C80007DE1F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				E82C71D91E2A8B6200BD4FE1 /* CryptoRates.app */,
+				E815397A1E32C05C0007DE1F /* CryptoRatesLauncher.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,27 +185,13 @@
 				E81A3D6D1E2BD2CE000A3B5D /* Extensions */,
 				E89161F51E2A98BD00543E85 /* Models */,
 				E89161EA1E2A914700543E85 /* Services */,
-				E89161E91E2A90E300543E85 /* Frameworks */,
 				E82C71DC1E2A8B6200BD4FE1 /* AppDelegate.swift */,
 				E82C71E01E2A8B6200BD4FE1 /* Assets.xcassets */,
 				E82C71E51E2A8B6200BD4FE1 /* Info.plist */,
 				E89161BF1E2A8CFF00543E85 /* Main.storyboard */,
+				E815398E1E32C0E50007DE1F /* CryptoRates.entitlements */,
 			);
 			path = CryptoRates;
-			sourceTree = "<group>";
-		};
-		E89161E91E2A90E300543E85 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E89161F91E2A990C00543E85 /* ObjectMapper.framework */,
-				E89161EB1E2A936600543E85 /* Moya.framework */,
-				E89161EC1E2A936600543E85 /* ReactiveMoya.framework */,
-				E89161DC1E2A90DD00543E85 /* Alamofire.framework */,
-				E89161DD1E2A90DD00543E85 /* ReactiveCocoa.framework */,
-				E89161DE1E2A90DD00543E85 /* ReactiveSwift.framework */,
-				E89161DF1E2A90DE00543E85 /* Result.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E89161EA1E2A914700543E85 /* Services */ = {
@@ -173,6 +229,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E81539791E32C05C0007DE1F /* CryptoRatesLauncher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E81539861E32C05D0007DE1F /* Build configuration list for PBXNativeTarget "CryptoRatesLauncher" */;
+			buildPhases = (
+				E81539761E32C05C0007DE1F /* Sources */,
+				E81539771E32C05C0007DE1F /* Frameworks */,
+				E81539781E32C05C0007DE1F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CryptoRatesLauncher;
+			productName = CryptoRatesLauncher;
+			productReference = E815397A1E32C05C0007DE1F /* CryptoRatesLauncher.app */;
+			productType = "com.apple.product-type.application";
+		};
 		E82C71D81E2A8B6200BD4FE1 /* CryptoRates */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E82C71E81E2A8B6200BD4FE1 /* Build configuration list for PBXNativeTarget "CryptoRates" */;
@@ -181,10 +254,12 @@
 				E82C71D61E2A8B6200BD4FE1 /* Frameworks */,
 				E82C71D71E2A8B6200BD4FE1 /* Resources */,
 				E89161E81E2A90DE00543E85 /* Embed Frameworks */,
+				E81539891E32C0860007DE1F /* Copy Launcher */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E81539881E32C0780007DE1F /* PBXTargetDependency */,
 			);
 			name = CryptoRates;
 			productName = CryptoRates;
@@ -201,10 +276,20 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = pNre;
 				TargetAttributes = {
+					E81539791E32C05C0007DE1F = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = A6G6M58MN7;
+						ProvisioningStyle = Automatic;
+					};
 					E82C71D81E2A8B6200BD4FE1 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = A6G6M58MN7;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -222,11 +307,21 @@
 			projectRoot = "";
 			targets = (
 				E82C71D81E2A8B6200BD4FE1 /* CryptoRates */,
+				E81539791E32C05C0007DE1F /* CryptoRatesLauncher */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E81539781E32C05C0007DE1F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E815397F1E32C05C0007DE1F /* Assets.xcassets in Resources */,
+				E81539821E32C05C0007DE1F /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E82C71D71E2A8B6200BD4FE1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -239,6 +334,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E81539761E32C05C0007DE1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E815397D1E32C05C0007DE1F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E82C71D51E2A8B6200BD4FE1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,7 +355,56 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		E81539881E32C0780007DE1F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E81539791E32C05C0007DE1F /* CryptoRatesLauncher */;
+			targetProxy = E81539871E32C0780007DE1F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E81539801E32C05C0007DE1F /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E81539811E32C05C0007DE1F /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		E81539841E32C05D0007DE1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = A6G6M58MN7;
+				INFOPLIST_FILE = CryptoRatesLauncher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pNre.CryptoRatesLauncher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		E81539851E32C05D0007DE1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = A6G6M58MN7;
+				INFOPLIST_FILE = CryptoRatesLauncher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pNre.CryptoRatesLauncher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		E82C71E61E2A8B6200BD4FE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -347,6 +499,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CryptoRates/CryptoRates.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = A6G6M58MN7;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -365,6 +518,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CryptoRates/CryptoRates.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = A6G6M58MN7;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -382,6 +536,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E81539861E32C05D0007DE1F /* Build configuration list for PBXNativeTarget "CryptoRatesLauncher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E81539841E32C05D0007DE1F /* Debug */,
+				E81539851E32C05D0007DE1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E82C71D41E2A8B6200BD4FE1 /* Build configuration list for PBXProject "CryptoRates" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
