@@ -20,6 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: Properties
     @IBOutlet weak var mainMenu: NSMenu!
+    @IBOutlet weak var lastUpdateItem: NSMenuItem!
     @IBOutlet weak var toggleStartupLaunchItem: NSMenuItem! {
         didSet {
             toggleStartupLaunchItem.state = isLaunchedOnLogin ? NSOnState : NSOffState
@@ -33,6 +34,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         item.menu = self.mainMenu
 
         return item
+
+    }()
+
+    /// Last update date formatter
+    private lazy var dateFormatter: DateFormatter = {
+
+        let formatter = DateFormatter()
+
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+
+        return formatter
 
     }()
 
@@ -77,6 +90,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
 
                 self?.statusItem.attributedTitle = AppDelegate.statusItemTitleFor(buy: buy, sell: sell)
+
+                if let date = self?.dateFormatter.string(from: Date()) {
+                    self?.lastUpdateItem.title = "Last update: \(date)"
+                } else {
+                    self?.lastUpdateItem.title = "Last update: unknown"
+                }
             }
 
     }
